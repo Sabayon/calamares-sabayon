@@ -60,11 +60,7 @@ class SabayonInstall:
         self._package_identifiers_to_remove = set()
 
     def shutdown(self):
-        if hasattr(self._entropy, "shutdown"):
-            self._entropy.shutdown()
-        else:
-            self._entropy.destroy()
-            EntropyCacher().stop()
+        self._entropy.shutdown()
 
     def destroy(self):
         # remove files db if exists
