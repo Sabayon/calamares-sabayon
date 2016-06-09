@@ -1371,9 +1371,9 @@ def run():
     libcalamares.utils.debug("Setting up your Sabayon")
 
     #sabayon_install.setup_secureboot()
-    sabayon_install.setup_users()
-    sabayon_install.setup_language() # before ldconfig, thx
-    sabayon_install.setup_keyboard()
+    #sabayon_install.setup_users()
+    #sabayon_install.setup_language() # before ldconfig, thx
+    #sabayon_install.setup_keyboard()
 
     sabayon_install.setup_sudo()
     sabayon_install.setup_audio()
