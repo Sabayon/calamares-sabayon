@@ -23,7 +23,6 @@ import entropy.dep
 from entropy.core.settings.base import SystemSettings
 from entropy.core import Singleton
 from entropy.services.client import WebService
-from entropy.cache import EntropyCacher
 from sabayon import Entropy
 from sabayon.const import LIVE_USER, LANGUAGE_PACKS, REPO_NAME, \
     ASIAN_FONTS_PACKAGES, FIREWALL_SERVICE, SB_PRIVATE_KEY, \
