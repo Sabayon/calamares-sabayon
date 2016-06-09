@@ -579,7 +579,9 @@ blacklist nouveau
                 sudo_f.flush()
 
     def setup_secureboot(self):
-        if not self._anaconda.platform.isEfi:
+        fw_type = self._calamares.globalstorage.value("firmwareType")
+
+        if fw_type != 'efi':
             # nothing to do about SecureBoot crap
             return
 
@@ -1368,7 +1370,7 @@ def run():
     install_path = libcalamares.globalstorage.value("rootMountPoint")
     libcalamares.utils.debug("Setting up your Sabayon")
 
-    sabayon_install.setup_secureboot()
+    #sabayon_install.setup_secureboot()
     sabayon_install.setup_users()
     sabayon_install.setup_language() # before ldconfig, thx
     sabayon_install.setup_keyboard()
