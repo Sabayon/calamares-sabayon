@@ -1387,7 +1387,7 @@ def run():
 
     sabayon_install.configure_services()
     sabayon_install.env_update()
-    sabayon_install.spawn_chroot("locale-gen", silent = True)
+    #sabayon_install.spawn_chroot("locale-gen", silent = True)
     sabayon_install.spawn_chroot("ldconfig")
     # Fix a possible /tmp problem
     sabayon_install.spawn("chmod a+w "+self._root+"/tmp")
