@@ -231,7 +231,7 @@ def setup_nvidia_legacy(root_install_path):
 def run():
     """ Sabayon Calamares Post-install module """
     # Do not use standard dracut module, but generate it from our environment
-    libcalamares.utils.target_env_call(['dracut', '-q', '-N', '-f','-o','systemd', '-o', 'systemd-initrd', '-o', 'systemd-networkd', '-o', 'dracut-systemd', '--kver', '$(uname -a)', '/boot/initramfs-genkernel-$(uname -m)-$(uname -a)'])
+    libcalamares.utils.target_env_call(['dracut', '-q', '-H', '-N', '-f','-o','systemd', '-o', 'systemd-initrd', '-o', 'systemd-networkd', '-o', 'dracut-systemd', '--kver', '$(uname -a)', '/boot/initramfs-genkernel-$(uname -m)-$(uname -a)'])
     # Get install path
     install_path = libcalamares.globalstorage.value('rootMountPoint')
     set_grub_background()
