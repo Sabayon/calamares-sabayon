@@ -213,8 +213,6 @@ def remove_proprietary_drivers(root_install_path):
                     xprofile = cont[-1]
                     if 'nvidia' in xprofile:
                         return 'nvidia'
-                    elif 'ati' in xprofile:
-                        return 'ati'
         return 'xorg-x11'
 
     bb_enabled = os.path.exists('/tmp/.bumblebee.enabled')
@@ -222,15 +220,10 @@ def remove_proprietary_drivers(root_install_path):
     xorg_x11 = get_opengl() == 'xorg-x11'
 
     if xorg_x11 and not bb_enabled:
-        libcalamares.utils.target_env_call(['rm', '-f', '/etc/env.d/09ati'])
         libcalamares.utils.target_env_call(
             ['rm', '-rf', '/usr/lib/opengl/ati'])
         libcalamares.utils.target_env_call(
             ['rm', '-rf', '/usr/lib/opengl/nvidia'])
-        libcalamares.utils.target_env_call(
-            ['equo', 'rm', '--nodeps', '--norecursive', 'ati-drivers'])
-        libcalamares.utils.target_env_call(
-            ['equo', 'rm', '--nodeps', '--norecursive', 'ati-userspace'])
         libcalamares.utils.target_env_call(
             ['equo', 'rm', '--nodeps', '--norecursive', 'nvidia-settings'])
         libcalamares.utils.target_env_call(
